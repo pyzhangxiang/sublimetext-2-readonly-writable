@@ -1,0 +1,16 @@
+[
+    {
+        "caption": "-",
+        "id": "separator"
+    },
+    
+    {
+        "command": "set_readonly",
+        "caption": "Set Readonly"
+    },
+    {
+        "command": "set_writable",
+        "caption": "Set Writable"
+    }
+    
+]

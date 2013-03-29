@@ -8,14 +8,14 @@ class SetReadonlyCommand(sublime_plugin.TextCommand):
         fileAtt = os.stat(myFile)[0]
         myPlatform = os.name
 
-        print "Making " + myFile + " readonly"
+        print ("Making " + myFile + " readonly")
         if (myPlatform == 'nt'):
             os.chmod(myFile, not stat.S_IWRITE)
         else:
             os.chflags(myFile, not stat.UF_IMMUTABLE)
 
     def is_enabled(self):
-        print "is_enabled"
+        print ("is_enabled")
         if not self.view.file_name() or len(self.view.file_name()) <= 0:
             return False
 
@@ -45,7 +45,7 @@ class SetWritableCommand(sublime_plugin.TextCommand):
         fileAtt = os.stat(myFile)[0]
         myPlatform = os.name
 
-        print "Making " + myFile + " writable"
+        print ("Making " + myFile + " writable")
         if (myPlatform == 'nt'):
             os.chmod(myFile, stat.S_IWRITE)
         else:

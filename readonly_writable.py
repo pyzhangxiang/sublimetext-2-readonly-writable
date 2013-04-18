@@ -15,7 +15,6 @@ class SetReadonlyCommand(sublime_plugin.TextCommand):
             os.chflags(myFile, not stat.UF_IMMUTABLE)
 
     def is_enabled(self):
-        print "is_enabled"
         if not self.view.file_name() or len(self.view.file_name()) <= 0:
             return False
 
@@ -34,9 +33,8 @@ class SetReadonlyCommand(sublime_plugin.TextCommand):
             else:
                 return False
 
-
     def is_visible(self):
-        return True
+        return self.is_enabled()
 
 
 class SetWritableCommand(sublime_plugin.TextCommand):
@@ -70,3 +68,5 @@ class SetWritableCommand(sublime_plugin.TextCommand):
             else:
                 return False
 
+    def is_visible(self):
+        return self.is_enabled()
